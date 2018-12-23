@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const HtmWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: path.join(__dirname, 'src/index.jsx'),
@@ -10,6 +11,12 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx']
     },
+    plugins: [
+        new HtmWebpackPlugin({
+            filename: 'index.html',
+            template: path.join(__dirname, 'src/index.html')
+        })
+    ],
     module: {
         rules: [
             {
